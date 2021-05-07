@@ -8,10 +8,9 @@ import TabBarIcon from '../components/utils/TabBarIcon';
 import TabBarText from '../components/utils/TabBarText';
 
 import Home from '../screens/Home';
-import SecondScreen from '../screens/SecondScreen';
 import About from '../screens/About';
 import Profile from '../screens/Profile';
-import StartSelect from '../screens/StartSelect';
+import NewBO from '../screens/NewBO';
 
 const MainStack = createStackNavigator();
 
@@ -22,9 +21,8 @@ const Main = () => {
 				headerShown: false,
 			}}
 		>	
-			<MainStack.Screen name="StartSelect" component={StartSelect} />
 			<MainStack.Screen name="MainTabs" component={MainTabs} />
-			<MainStack.Screen name="SecondScreen" component={SecondScreen} />
+			<MainStack.Screen name="NewBO" component={NewBO} />
 		</MainStack.Navigator>
 	);
 };
@@ -44,9 +42,7 @@ const MainTabs = () => {
 				name="Home"
 				component={Home}
 				options={{
-					tabBarLabel: ({ focused }) => (
-						<TabBarText focused={focused} title="Home" />
-					),
+					title: "Cadastro",
 					tabBarIcon: ({ focused }) => (
 						<TabBarIcon focused={focused} icon={'md-home'} />
 					),
@@ -56,11 +52,10 @@ const MainTabs = () => {
 				name="Profile"
 				component={Profile}
 				options={{
-					tabBarLabel: ({ focused }) => (
-						<TabBarText focused={focused} title="Profile" />
-					),
+					title: "Pesquia",
+
 					tabBarIcon: ({ focused }) => (
-						<TabBarIcon focused={focused} icon={'person'} />
+						<TabBarIcon focused={focused} icon={'search'} />
 					),
 				}}
 			/>
@@ -68,11 +63,10 @@ const MainTabs = () => {
 				name="About"
 				component={About}
 				options={{
-					tabBarLabel: ({ focused }) => (
-						<TabBarText focused={focused} title="About" />
-					),
+					title: "Configurações",
+
 					tabBarIcon: ({ focused }) => (
-						<TabBarIcon focused={focused} icon={'ios-information-circle'} />
+						<TabBarIcon focused={focused} icon={'settings'} />
 					),
 				}}
 			/>

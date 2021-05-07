@@ -1,5 +1,7 @@
 let INITIAL_STATE = {
-    
+    new_bo: {
+		
+	}
 };
 
 export default  (state = INITIAL_STATE, {type, payload}) => {

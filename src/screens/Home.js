@@ -1,5 +1,6 @@
+import { LinearGradient } from 'expo-linear-gradient';
 import React from 'react';
-import { View, Linking } from 'react-native';
+import { View, Linking, TouchableOpacity } from 'react-native';
 import {
 	Layout,
 	Button,
@@ -7,6 +8,8 @@ import {
 	Section,
 	SectionContent,
 } from 'react-native-rapi-ui';
+import { Ionicons } from '@expo/vector-icons';
+
 
 export default function ({ navigation }) {
 	return (
@@ -15,32 +18,61 @@ export default function ({ navigation }) {
 				style={{
 					flex: 1,
 					alignItems: 'center',
-					justifyContent: 'center',
+					justifyContent: 'space-evenly',
 					marginHorizontal: 20,
+					flexDirection:'column'
 				}}
 			>
-				<Section>
-					<SectionContent>
-						<Text fontWeight="bold" style={{ textAlign: 'center' }}>
-							These UI components provided by Rapi UI
-						</Text>
-						<Button
-							style={{ marginTop: 10 }}
-							text="Rapi UI Documentation"
-							status="info"
-							onPress={() => Linking.openURL('https://rapi-ui.kikiding.space/')}
-						/>
-						<Button
-							text="Go to second screen"
-							onPress={() => {
-								navigation.navigate('SecondScreen');
-							}}
-							style={{
-								marginTop: 10,
-							}}
-						/>
-					</SectionContent>
+				<Section style={{width: "100%"}}>
+					<TouchableOpacity 
+						onPress={ () => { navigation.navigate('NewBO') }}
+						style={{ backgroundColor: 'rgb(34, 34, 34)', paddingHorizontal: 40, paddingVertical: 20 }}>
+						<View
+					// Background Linear Gradient  #232526, #414345
+					style={{ justifyContent:'center', alignItems:'center'}}
+				>
+					<Ionicons  name="newspaper-outline" size={60} color="white" style={{marginBottom: 20, }} />
+					<Text
+						style={{
+							fontWeight: 'bold',
+							fontSize: 22,
+							textTransform: 'capitalize',
+							color: 'white',
+							fontFamily:"RobotoCondensed_700Bold_Italic",
+							fontStyle: 'italic'
+						}}
+					>
+               BOLETIM DE OCORRÊNCIA
+					</Text>
+					</View>
+			</TouchableOpacity>
 				</Section>
+
+				<Section style={{width: "100%"}}>
+					<TouchableOpacity 
+			onPress={ () => { navigation.navigate('MainTabs') }}
+			style={{ backgroundColor: 'rgb(34, 34, 34)', paddingHorizontal: 40, paddingVertical: 20 }}>
+			<View
+					// Background Linear Gradient  #232526, #414345
+					style={{ justifyContent:'center', alignItems:'center'}}
+				>
+					<Ionicons  name="md-shield-checkmark-outline" size={60} color="white" style={{marginBottom: 20, }} />
+					<Text
+						style={{
+							fontWeight: 'bold',
+							fontSize: 22,
+							textTransform: 'capitalize',
+							color: 'white',
+							fontFamily:"RobotoCondensed_700Bold_Italic",
+							fontStyle: 'italic'
+						}}
+					>
+               OPERAÇÕES
+					</Text>
+					</View>
+			</TouchableOpacity>
+				</Section>
+
 			</View>
 		</Layout>
 	);
