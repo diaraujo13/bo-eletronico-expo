@@ -1,6 +1,5 @@
 {
     "env": {
-        "browser": true,
         "es2021": true
     },
     "extends": [
@@ -33,6 +32,9 @@
         "semi": [
             "error",
             "always"
-        ]
+        ],
+        "react/display-name": "off",
+        "react/prop-types": "off",
+        "react/jsx-closing-bracket-location": "enabled"
     }
 }
