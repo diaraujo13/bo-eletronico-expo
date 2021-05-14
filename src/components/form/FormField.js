@@ -2,10 +2,14 @@
 import React, { Component } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import { TextInput } from 'react-native-rapi-ui'
+import FormDateTimePicker from './inputs/FormDateTimePicker'
+import FormTimePicker from './inputs/FormTimePicker'
+import FormSelect from './inputs/FormSelect'
+
 // create a component
 const FormField = ({ attrs, formikObj }) => {
-  const { title, subtitle, placeholder, value, name, ...otherProps } = attrs;
-  const {handleChange} = formikObj;
+  const { title, subtitle, placeholder, value, name, ...otherProps } = attrs
+  const { handleChange } = formikObj
 
   const renderInputComponent = () => {
     switch (attrs.inputType) {
@@ -21,7 +25,12 @@ const FormField = ({ attrs, formikObj }) => {
           />
         )
         break
-
+      case 'datetime':
+        return <FormDateTimePicker name={name} {...formikObj} />
+        break
+      case 'select':
+        return <FormSelect attrs={attrs} {...formikObj} />
+        break
       default:
         break
     }
