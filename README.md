@@ -1,10 +1,3 @@
-# Template Bottom tabs
-
-Template starter with React Navigation Bottom Tabs
-
-# Preview
-
-![../media/bottomtabs.gif](../media/bottomtabs.gif | width=200)
 
 # Installation
 
@@ -27,17 +20,6 @@ Template starter with React Navigation Bottom Tabs
    ```jsx
    expo start
    ```
-
-### Rapi UI
-
-![../media/hero.png](../media/hero.png)
-
-These UI components are provided by [Rapi UI](https://rapi-ui.kikiding.space/).
-Check the [documentation](https://rapi-ui.kikiding.space/docs/) for usage and more components.
-
-# File Managements
-
-These are the folders and the functionality
 
 ```jsx
 /src/assets -> for media such as images, etc
