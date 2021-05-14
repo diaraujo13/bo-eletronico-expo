@@ -9,7 +9,7 @@ import TabBarText from '../components/utils/TabBarText';
 
 import Home from '../screens/Home';
 import About from '../screens/About';
-import Profile from '../screens/Profile';
+import Search from '../screens/Search';
 import NewBO from '../screens/NewBO';
 
 const MainStack = createStackNavigator();
@@ -42,18 +42,17 @@ const MainTabs = () => {
 				name="Home"
 				component={Home}
 				options={{
-					title: "Cadastro",
+					title: "Início",
 					tabBarIcon: ({ focused }) => (
 						<TabBarIcon focused={focused} icon={'md-home'} />
 					),
 				}}
 			/>
 			<Tabs.Screen
-				name="Profile"
-				component={Profile}
+				name="Search"
+				component={Search}
 				options={{
-					title: "Pesquia",
-
+					title: "Busca",
 					tabBarIcon: ({ focused }) => (
 						<TabBarIcon focused={focused} icon={'search'} />
 					),
