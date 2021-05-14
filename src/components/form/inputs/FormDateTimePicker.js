@@ -14,6 +14,7 @@ const FormDateTimePicker = props => {
       mode='date'
       placeholder='Selecione data'
       confirmBtnText='Confirmar'
+      format='DD/MM/YYYY'
       cancelBtnText='Cancelar'
       showIcon={false}
       onDateChange={date => {
