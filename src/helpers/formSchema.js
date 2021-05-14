@@ -12,68 +12,71 @@ export const formSchema = [
     title: 'Tipo de Ocorrência',
     placeholder: '',
     options: [
-      { index: '40', text: 'AMEAÇA' },
-      { index: '81', text: 'ATO / ESCRITO / OBJETO OBSCENO' },
-      { index: '100', text: 'APROPRIAÇÃO INDÉBITA' },
-      { index: '101', text: 'DANO / DEPREDAÇÃO' },
-      { index: '102', text: 'ESTELIONATO / FRAUDE' },
-      { index: '107', text: 'POSSE / INVASÃO DE PROPRIEDADE' },
-      { index: '141', text: 'CALUNIA / DIFAMAÇÃO / INJURIA' },
-      { index: '142', text: 'CONSTRANGIMENTO ILEGAL' },
-      { index: '146', text: 'VIAS DE FATO / RIXA' },
-      { index: '147', text: 'VIOLAÇÃO DE DOMICÍLIO' },
-      { index: '161', text: 'PERTURBAÇÃO DO SOSSEGO / TRANQUILIDADE PÚBLICA' },
-      { index: '183', text: 'DESACATO' },
-      { index: '222', text: 'FAZER COBRANÇA DE DIVIDAS DE MANEIRA AMEAÇADORA' },
-      { index: '240', text: 'FALSA IDENTIDADE / FALSIDADE IDEOLÓGICA ' },
-      { index: '280', text: 'ACIDENTE DE TRÂNSITO SEM VÍTIMA' },
-      { index: '300', text: 'EXTRAVIO' },
-      { index: '310', text: 'CRIMES CONTRA AS RELAÇÕES DE CONSUMO' },
+      { value: '40', label: 'AMEAÇA' },
+      { value: '81', label: 'ATO / ESCRITO / OBJETO OBSCENO' },
+      { value: '100', label: 'APROPRIAÇÃO INDÉBITA' },
+      { value: '101', label: 'DANO / DEPREDAÇÃO' },
+      { value: '102', label: 'ESTELIONATO / FRAUDE' },
+      { value: '107', label: 'POSSE / INVASÃO DE PROPRIEDADE' },
+      { value: '141', label: 'CALUNIA / DIFAMAÇÃO / INJURIA' },
+      { value: '142', label: 'CONSTRANGIMENTO ILEGAL' },
+      { value: '146', label: 'VIAS DE FATO / RIXA' },
+      { value: '147', label: 'VIOLAÇÃO DE DOMICÍLIO' },
+      { value: '161', label: 'PERTURBAÇÃO DO SOSSEGO / TRANQUILIDADE PÚBLICA' },
+      { value: '183', label: 'DESACATO' },
       {
-        index: '313',
-        text: 'EXERCÍCIO ILEGAL DA MEDICINA, ARTE DENTÁRIA OU FARMACÊUTICA'
+        value: '222',
+        label: 'FAZER COBRANÇA DE DIVIDAS DE MANEIRA AMEAÇADORA'
       },
-      { index: '320', text: 'CRUELDADE CONTRA ANIMAIS' },
-      { index: '321', text: 'EXERCÍCIO ARBITRÁRIO DAS PRÓPRIAS RAZÕES' },
-      { index: '334', text: 'VIAS DE FATO' },
-      { index: '336', text: 'CALÚNIA' },
-      { index: '337', text: 'DIFAMAÇÃO' },
-      { index: '346', text: 'DESENTENDIMENTO/DISCUSSÃO' },
-      { index: '356', text: 'INJURIA QUALIFICADA RACIAL' },
-      { index: '359', text: 'ROUBO A TRANSEUNTE' },
-      { index: '360', text: 'ROUBO A ÔNIBUS' },
-      { index: '361', text: 'ROUBO A OUTROS TRANSPORTES COLETIVOS' },
-      { index: '362', text: 'ROUBO EM RESIDÊNCIA' },
+      { value: '240', label: 'FALSA IDENTIDADE / FALSIDADE IDEOLÓGICA ' },
+      { value: '280', label: 'ACIDENTE DE TRÂNSITO SEM VÍTIMA' },
+      { value: '300', label: 'EXTRAVIO' },
+      { value: '310', label: 'CRIMES CONTRA AS RELAÇÕES DE CONSUMO' },
       {
-        index: '363',
-        text: 'ROUBO EM ESTABELECIMENTO COMERCIAL OU DE SERVIÇOS'
+        value: '313',
+        label: 'EXERCÍCIO ILEGAL DA MEDICINA, ARTE DENTÁRIA OU FARMACÊUTICA'
       },
-      { index: '365', text: 'ROUBO A OUTRAS INSTITUIÇÕES FINANCEIRAS' },
-      { index: '366', text: 'ROUBO (SAÍDA DE BANCO/INSTITUIÇÃO FINANCEIRA)' },
-      { index: '369', text: 'OUTROS ROUBOS' },
-      { index: '370', text: 'FURTO A TRANSEUNTE' },
-      { index: '371', text: 'FURTO EM RESIDÊNCIA' },
+      { value: '320', label: 'CRUELDADE CONTRA ANIMAIS' },
+      { value: '321', label: 'EXERCÍCIO ARBITRÁRIO DAS PRÓPRIAS RAZÕES' },
+      { value: '334', label: 'VIAS DE FATO' },
+      { value: '336', label: 'CALÚNIA' },
+      { value: '337', label: 'DIFAMAÇÃO' },
+      { value: '346', label: 'DESENTENDIMENTO/DISCUSSÃO' },
+      { value: '356', label: 'INJURIA QUALIFICADA RACIAL' },
+      { value: '359', label: 'ROUBO A TRANSEUNTE' },
+      { value: '360', label: 'ROUBO A ÔNIBUS' },
+      { value: '361', label: 'ROUBO A OUTROS TRANSPORTES COLETIVOS' },
+      { value: '362', label: 'ROUBO EM RESIDÊNCIA' },
       {
-        index: '372',
-        text: 'FURTO EM ESTABELECIMENTO COMERCIAL OU DE SERVIÇOS'
+        value: '363',
+        label: 'ROUBO EM ESTABELECIMENTO COMERCIAL OU DE SERVIÇOS'
       },
-      { index: '374', text: 'FURTO A OUTRAS INSTITUIÇÕES FINANCEIRAS' },
-      { index: '376', text: 'FURTO (SAÍDA DE BANCO/INSTITUIÇÃO FINANCEIRA)' },
-      { index: '378', text: 'OUTROS FURTOS' },
-      { index: '382', text: 'AMEAÇA POR VIOLÊNCIA DOMÉSTICA/FAMILIAR' },
-      { index: '384', text: 'CALÚNIA POR VIOLÊNCIA DOMÉSTICA/FAMILIAR' },
-      { index: '388', text: 'DIFAMAÇÃO POR VIOLÊNCIA DOMÉSTICA/FAMILIAR' },
-      { index: '395', text: 'INJÚRIA POR VIOLÊNCIA DOMÉSTICA/FAMILIAR' },
+      { value: '365', label: 'ROUBO A OUTRAS INSTITUIÇÕES FINANCEIRAS' },
+      { value: '366', label: 'ROUBO (SAÍDA DE BANCO/INSTITUIÇÃO FINANCEIRA)' },
+      { value: '369', label: 'OUTROS ROUBOS' },
+      { value: '370', label: 'FURTO A TRANSEUNTE' },
+      { value: '371', label: 'FURTO EM RESIDÊNCIA' },
       {
-        index: '404',
-        text: 'DIFERENÇA DE FLUXO  CAIXA EM INST. FIN. OU TRANSP DE VALORES'
+        value: '372',
+        label: 'FURTO EM ESTABELECIMENTO COMERCIAL OU DE SERVIÇOS'
       },
-      { index: '416', text: 'INVASÃO DE DISPOSITIVO INFORMÁTICO' },
+      { value: '374', label: 'FURTO A OUTRAS INSTITUIÇÕES FINANCEIRAS' },
+      { value: '376', label: 'FURTO (SAÍDA DE BANCO/INSTITUIÇÃO FINANCEIRA)' },
+      { value: '378', label: 'OUTROS FURTOS' },
+      { value: '382', label: 'AMEAÇA POR VIOLÊNCIA DOMÉSTICA/FAMILIAR' },
+      { value: '384', label: 'CALÚNIA POR VIOLÊNCIA DOMÉSTICA/FAMILIAR' },
+      { value: '388', label: 'DIFAMAÇÃO POR VIOLÊNCIA DOMÉSTICA/FAMILIAR' },
+      { value: '395', label: 'INJÚRIA POR VIOLÊNCIA DOMÉSTICA/FAMILIAR' },
       {
-        index: '499',
-        text: 'CÁRCERE PRIVADO POR VIOLÊNCIA DOMÉSTICA/FAMILIAR'
+        value: '404',
+        label: 'DIFERENÇA DE FLUXO  CAIXA EM INST. FIN. OU TRANSP DE VALORES'
       },
-      { index: '491', text: 'DESCUMPRIMENTO DE MEDIDA PROTETIVA DE URGÊNCIA' }
+      { value: '416', label: 'INVASÃO DE DISPOSITIVO INFORMÁTICO' },
+      {
+        value: '499',
+        label: 'CÁRCERE PRIVADO POR VIOLÊNCIA DOMÉSTICA/FAMILIAR'
+      },
+      { value: '491', label: 'DESCUMPRIMENTO DE MEDIDA PROTETIVA DE URGÊNCIA' }
     ]
   },
   {
@@ -84,9 +87,9 @@ export const formSchema = [
     required: true
   },
   {
-    inputType: 'datetime',
+    inputType: 'date',
     name: 'dataFato',
-    title: 'Data e hora do fato',
+    title: 'Data do fato',
     placeholder: '',
     required: true
   }

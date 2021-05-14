@@ -1,13 +1,23 @@
-//import liraries
 import React, { Component } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
+import { Picker } from '@react-native-community/picker'
 
-// create a component
-const FormSelect = () => {
+const FormSelect = props => {
+  const {
+    attrs: { name },
+    values,
+    setFieldValue,
+    options
+  } = props
   return (
-    <View style={styles.container}>
-      <Text>FormSelect</Text>
-    </View>
+    <Picker
+      onValueChange={itemValue => setFieldValue(name, itemValue)}
+      selectedValue={values[name]}
+    >
+      {options.map(({ label, value }) => (
+        <Picker.Item key={value} label={label} value={value} />
+      ))}
+    </Picker>
   )
 }
 

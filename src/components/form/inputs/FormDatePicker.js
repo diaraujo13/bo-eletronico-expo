@@ -4,7 +4,7 @@ import { View, Text, StyleSheet } from 'react-native'
 import DatePicker from 'react-native-datepicker'
 
 // create a component
-const FormDateTimePicker = props => {
+const FormDatePicker = props => {
   const { name, values, setFieldValue, ...rest } = props
 
   return (
@@ -32,4 +32,4 @@ const styles = StyleSheet.create({
 })
 
 //make this component available to the app
-export default FormDateTimePicker
+export default FormDatePicker
