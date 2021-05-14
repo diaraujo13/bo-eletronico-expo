@@ -56,13 +56,13 @@ const FormField = ({ attrs, formikObj }) => {
 const styles = StyleSheet.create({
   px10: { paddingVertical: 10 },
   form_field_label: {
-    fontSize: 20,
+    fontSize: 13,
     fontFamily: 'RobotoCondensed_400Regular',
     marginBottom: 10,
     textTransform: 'uppercase'
   },
   form_field_subtitle: {
-    fontSize: 15,
+    fontSize: 11,
     color: 'gray',
     fontFamily: 'RobotoCondensed_400Regular',
     marginBottom: 10

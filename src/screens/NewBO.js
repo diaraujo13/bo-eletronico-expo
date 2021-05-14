@@ -40,7 +40,7 @@ const NewBO = ({ navigation }) => {
               }}
             >
               {formikObj => (
-                <>
+                <View style={{ flex: 1, paddingBottom: 200 }}>
                   {formSchema.map((formField, i) => (
                     <FormField
                       attrs={formField}
@@ -74,7 +74,7 @@ const NewBO = ({ navigation }) => {
                     onPress={formikObj.handleSubmit}
                     text='Salvar'
                   />
-                </>
+                </View>
               )}
             </Formik>
           </FormWrapper>
