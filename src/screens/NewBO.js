@@ -48,6 +48,27 @@ const NewBO = ({ navigation }) => {
                       formikObj={formikObj}
                     />
                   ))}
+
+                  <Button
+                    color='gray'
+                    onPress={formikObj.handleSubmit}
+                    leftContent={
+                      <Ionicons name='person' color='white' size={34} />
+                    }
+                    style={{ marginBottom: 10 }}
+                    text='Adicionar Envolvido'
+                  />
+
+                  <Button
+                    color='gray'
+                    leftContent={
+                      <Ionicons name='archive' color='white' size={34} />
+                    }
+                    onPress={formikObj.handleSubmit}
+                    text='Adicionar objeto'
+                    style={{ marginBottom: 10 }}
+                  />
+
                   <Button
                     loading={loading}
                     onPress={formikObj.handleSubmit}
