@@ -20,19 +20,17 @@ const FormField = ({ attrs, formikObj }) => {
             placeholder={placeholder}
             underlineColorAndroid='rgba(0,0,0,0)'
             onChangeText={handleChange(name)}
-            name={name}
             value={values[name]}
             {...formikObj}
           />
         )
         break
       case 'date':
-        return <FormDatePicker name={name} {...formikObj} />
+        return <FormDatePicker  {...formikObj} />
         break
       case 'select':
         return (
           <FormSelect
-            name={name}
             attrs={attrs}
             {...formikObj}
             {...otherProps}

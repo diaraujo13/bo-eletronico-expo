@@ -98,7 +98,7 @@ export const formSchema = [
 ]
 
 export const personSchema = [
-  {
+  [{
     inputType: 'text',
     name: 'nome_completo',
     title: 'Nome completo',
@@ -118,7 +118,7 @@ export const personSchema = [
     title: 'Profissão',
     placeholder: '',
     required: true
-  }
+  }]
 ]
 
 export const objetosSchema = [

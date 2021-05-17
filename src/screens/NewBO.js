@@ -9,6 +9,7 @@ import { Section, SectionContent } from 'react-native-rapi-ui'
 import { Ionicons } from '@expo/vector-icons'
 import { FieldArray, Formik } from 'formik'
 import FormGroup from '../components/form/FormGroup'
+import PersonForm from '../components/widgets/PersonForm'
 
 const NewBO = ({ navigation }) => {
   const [form, setForm] = useState(formSchema)
@@ -55,21 +56,12 @@ const NewBO = ({ navigation }) => {
                     ))}
                   </FormGroup>
                   <FormGroup>
-                    {pessoasForm.map((formField, i) => (
-                      <FormField
-                        attrs={formField}
-                        key={'person-' + i}
-                        formikObj={formikObj}
-                      />
-                    ))}
+                    {pessoasForm.map((formFields, i) => <PersonForm fields={formFields} key={i} index={i} formikObj={formikObj} />)}
 
                     <Button
                       color='gray'
                       onPress={() => {
-                        let newForm = setForm({
-                          ...form,
-                          pessoas: [...form.pessoas]
-                        })
+                         setPessoasForm( [...pessoasForm, personSchema[0]])
                       }}
                       leftContent={
                         <Ionicons name='person' color='white' size={34} />
@@ -78,6 +70,7 @@ const NewBO = ({ navigation }) => {
                       text='Adicionar Envolvido'
                     />
                   </FormGroup>
+                  
 
                   <FormGroup>
                     <FieldArray
@@ -98,6 +91,7 @@ const NewBO = ({ navigation }) => {
                                       key={'objetos-' + index}
                                       formikObj={formikObj}
                                     />
+                                    
                                   </View>
                                 )
                               )
