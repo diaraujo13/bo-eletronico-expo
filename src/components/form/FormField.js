@@ -5,6 +5,7 @@ import { TextInput } from 'react-native-rapi-ui'
 import FormDatePicker from './inputs/FormDatePicker'
 import FormTimePicker from './inputs/FormTimePicker'
 import FormSelect from './inputs/FormSelect'
+import FormDuoSelect from './inputs/FormDuoSelect'
 
 // create a component
 const FormField = ({ attrs, formikObj }) => {
@@ -31,6 +32,16 @@ const FormField = ({ attrs, formikObj }) => {
       case 'select':
         return (
           <FormSelect
+            name={name}
+            attrs={attrs}
+            {...formikObj}
+            {...otherProps}
+          />
+        )
+        break
+      case 'duo_select':
+        return (
+          <FormDuoSelect
             name={name}
             attrs={attrs}
             {...formikObj}
