@@ -1,23 +1,30 @@
 //import liraries
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import FormField from '../form/FormField';
 
 // create a component
-const ObjetosForm = () => {
+const ObjetosForm = ({fields, formikObj, index}) => {
     return (
         <View style={styles.container}>
-            <Text>ObjetosForm</Text>
+            <Text style={{ fontWeight:'bold'}}>Objeto {index+1}</Text>
+            {
+                fields.map( (field, idx) => (
+                    <FormField 
+                    attrs={{...field, name:  `objetos.${index}.${field.name}`}}
+                    name={`objetos.${index}.${field.name}`}
+                    formikObj={formikObj} />
+                ))
+            }
+           
         </View>
-    );
+        )
 };
 
 // define your styles
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#2c3e50',
     },
 });
 

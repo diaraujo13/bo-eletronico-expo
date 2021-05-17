@@ -40,8 +40,8 @@ const FormField = ({ attrs, formikObj }) => {
       case 'duo_select':
         return (
           <FormDuoSelect
-            name={name}
             attrs={attrs}
+            value={values[name]}
             {...formikObj}
             {...otherProps}
           />

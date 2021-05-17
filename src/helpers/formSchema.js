@@ -121,7 +121,7 @@ export const personSchema = [
   }]
 ]
 
-export const objetosSchema = [
+export const objetosSchema = [[
   {
     inputType: 'duo_select',
     name: 'tipo_objeto',
@@ -6845,5 +6845,5 @@ export const objetosSchema = [
     title: 'Valor objeto',
     placeholder: '',
     required: true
-  }
+  }]
 ]

@@ -16,7 +16,6 @@ const FormDuoSelect = props => {
       <Picker
         onValueChange={itemValue => {
           setFieldValue(name, itemValue)
-          console.log(options[itemValue], itemValue)
           setSubOptions(options[itemValue].options)
         }}
         selectedValue={values[name]}

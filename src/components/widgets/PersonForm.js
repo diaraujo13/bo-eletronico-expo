@@ -7,7 +7,7 @@ import FormField from '../form/FormField';
 const PersonForm = ({fields, formikObj, index}) => {
     return (
         <View style={styles.container}>
-            <Text style={{ fontWeight:'bold'}}>Envolvido {index}</Text>
+            <Text style={{ fontWeight:'bold'}}>Envolvido {index+1}</Text>
             {
                 fields.map( (field, idx) => (
                     <FormField 

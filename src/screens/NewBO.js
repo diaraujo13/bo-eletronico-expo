@@ -10,6 +10,7 @@ import { Ionicons } from '@expo/vector-icons'
 import { FieldArray, Formik } from 'formik'
 import FormGroup from '../components/form/FormGroup'
 import PersonForm from '../components/widgets/PersonForm'
+import ObjetosForm from '../components/widgets/ObjetosForm'
 
 const NewBO = ({ navigation }) => {
   const [form, setForm] = useState(formSchema)
@@ -57,7 +58,6 @@ const NewBO = ({ navigation }) => {
                   </FormGroup>
                   <FormGroup>
                     {pessoasForm.map((formFields, i) => <PersonForm fields={formFields} key={i} index={i} formikObj={formikObj} />)}
-
                     <Button
                       color='gray'
                       onPress={() => {
@@ -70,50 +70,18 @@ const NewBO = ({ navigation }) => {
                       text='Adicionar Envolvido'
                     />
                   </FormGroup>
-                  
-
                   <FormGroup>
-                    <FieldArray
-                      name='objetos'
-                      render={arrayHelpers => (
-                        <>
-                          {formikObj.values.objetos &&
-                          formikObj.values.objetos.length > 0
-                            ? formikObj.values.objetos.map(
-                                (formField, index) => (
-                                  <View>
-                                    <FormField
-                                      attrs={{
-                                        ...formField,
-                                        name: `objetos.${index}`
-                                      }}
-                                      name={`objetos.${index}`}
-                                      key={'objetos-' + index}
-                                      formikObj={formikObj}
-                                    />
-                                    
-                                  </View>
-                                )
-                              )
-                            : null}
-
-                          <Button
-                            color='gray'
-                            leftContent={
-                              <Ionicons
-                                name='archive'
-                                color='white'
-                                size={34}
-                              />
-                            }
-                            onPress={() => {
-                              arrayHelpers.push(objetosSchema[0])
-                            }}
-                            text='Adicionar objeto'
-                            style={{ marginBottom: 10 }}
-                          />
-                        </>
-                      )}
+                    {objetosForm.map((formFields, i) => <ObjetosForm fields={formFields} key={i} index={i} formikObj={formikObj} />)}
+                    <Button
+                      color='gray'
+                      onPress={() => {
+                         setObjetosForm( [...objetosForm, objetosSchema[0]])
+                      }}
+                      leftContent={
+                        <Ionicons name='archive' color='white' size={34} />
+                      }
+                      style={{ marginBottom: 10 }}
+                      text='Adicionar Objeto'
                     />
                   </FormGroup>
 
