@@ -26,7 +26,7 @@ const FormField = ({ attrs, formikObj }) => {
         )
         break
       case 'date':
-        return <FormDatePicker  {...formikObj} />
+        return <FormDatePicker attrs={attrs} value={values[name]} {...formikObj} />
         break
       case 'select':
         return (

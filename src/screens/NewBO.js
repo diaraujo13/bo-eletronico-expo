@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import { TextInput, Button } from 'react-native-rapi-ui'
 import FormField from '../components/form/FormField'

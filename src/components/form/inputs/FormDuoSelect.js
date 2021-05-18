@@ -10,30 +10,40 @@ const FormDuoSelect = props => {
     options
   } = props
 
-  const [suboptions, setSubOptions] = useState([])
+
+
+  const [selectedSuboption, setSelectedSubOption] = useState([])
+  const [selectedOption, setSelectedOption] = useState(0)
   return (
     <>
       <Picker
-        onValueChange={itemValue => {
-          setFieldValue(name, itemValue)
-          setSubOptions(options[itemValue].options)
+        onValueChange={(itemValue, itemIndex) => {
+            console.log(name)
+            setSelectedOption(itemIndex)
+          //setSubOptions(options[itemValue].options)
+          setFieldValue(name, itemIndex)
+            console.log(values[`${name}`])
         }}
-        selectedValue={values[name]}
+        selectedValue={selectedOption}
       >
         {options.map(({ label, value }, index) => (
           <Picker.Item key={value} label={label} value={index} />
         ))}
       </Picker>
-      <Picker
-        onValueChange={itemValue =>
-          setFieldValue(name + '_category', itemValue)
-        }
-        selectedValue={values[name + '_category']}
-      >
-        {suboptions.map(({ label, value }, index) => (
-          <Picker.Item key={value} label={label} value={index} />
-        ))}
-      </Picker>
+        {
+            options[selectedOption].options && options[selectedOption].options.length > 0 && (
+              <Picker
+                onValueChange={(itemValue, itemIndex) => {
+                    setFieldValue(name + '_category', itemIndex);
+                    setSelectedSubOption(itemIndex);
+                }}
+                selectedValue={selectedSuboption}
+              >
+                {options[selectedOption].options.map(({ label, value }, index) => (
+                  <Picker.Item key={value} label={label} value={index} />
+                ))}
+              </Picker>
+        )}
     </>
   )
 }

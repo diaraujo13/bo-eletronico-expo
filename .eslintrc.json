@@ -37,6 +37,6 @@
         ],
         "react/display-name": "off",
         "react/prop-types": "off",
-        "react/jsx-closing-bracket-location": "enabled"
+        "react/jsx-closing-bracket-location": "off"
     }
 }
