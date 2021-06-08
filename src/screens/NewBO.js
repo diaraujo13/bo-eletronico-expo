@@ -15,8 +15,10 @@ import {API_URL} from "../helpers/constants";
 
 const NewBO = ({ navigation }) => {
   const [form, setForm] = useState(formSchema)
-  const [pessoasForm, setPessoasForm] = useState(personSchema)
-  const [objetosForm, setObjetosForm] = useState(objetosSchema)
+  const [pessoasForm, setPessoasForm] = useState(personSchema);
+  const [objetosForm, setObjetosForm] = useState(objetosSchema);
+  const [showPersonsForm, togglePersonsFormVisibility] = useState(false);
+  const [showObjetosForm, toggleObjetosFormVisibility] = useState(false);
 
   const [loading, setLoading] = useState(false)
 
