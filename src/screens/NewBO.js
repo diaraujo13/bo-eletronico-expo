@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import {View, Text, StyleSheet, Alert} from 'react-native'
 import { TextInput, Button } from 'react-native-rapi-ui'
 import FormField from '../components/form/FormField'
 import FormWrapper from '../components/form/FormWrapper'
@@ -11,6 +11,7 @@ import { FieldArray, Formik } from 'formik'
 import FormGroup from '../components/form/FormGroup'
 import PersonForm from '../components/widgets/PersonForm'
 import ObjetosForm from '../components/widgets/ObjetosForm'
+import {API_URL} from "../helpers/constants";
 
 const NewBO = ({ navigation }) => {
   const [form, setForm] = useState(formSchema)
@@ -41,8 +42,25 @@ const NewBO = ({ navigation }) => {
           <FormWrapper>
             <Formik
               initialValues={{}}
-              onSubmit={values => {
-                console.log(JSON.stringify(values))
+              onSubmit={ async values => {
+
+                  fetch(API_URL, {
+                      method: 'POST',
+                      headers: {
+                          'Content-Type': 'application/json',
+                      },
+                      body: JSON.stringify(values)
+                  })
+                      .then( res => res.json())
+                      .then( res => {
+                          if (!res.error){
+                              alert("Dados salvos com sucesso");
+                              navigation.goBack()
+                          }
+                      }).catch( err => {
+                          Alert.alert("Erro", "Ocorreu um erro ao processar sua requisiçao")
+                  })
+
               }}
             >
               {formikObj => (
