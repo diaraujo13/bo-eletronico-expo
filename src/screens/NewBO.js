@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import {View, Text, StyleSheet, Alert} from 'react-native'
-import { TextInput, Button } from 'react-native-rapi-ui'
+import { TextInput, Button, CheckBox } from 'react-native-rapi-ui'
 import FormField from '../components/form/FormField'
 import FormWrapper from '../components/form/FormWrapper'
 import { formSchema, personSchema, objetosSchema } from '../helpers/formSchema'
@@ -76,7 +76,15 @@ const NewBO = ({ navigation }) => {
                       />
                     ))}
                   </FormGroup>
-                  <FormGroup>
+
+                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                    <CheckBox value={showPersonsForm} onValueChange={(val) => togglePersonsFormVisibility(val)} />
+                    <Text size="md" style={{ marginLeft: 10, color: 'gray' }}>
+                        Houve envolvidos?
+                    </Text>
+                </View>
+
+                { showPersonsForm && <FormGroup>
                     {pessoasForm.map((formFields, i) => <PersonForm fields={formFields} key={i} index={i} formikObj={formikObj} />)}
                     <Button
                       color='gray'
@@ -90,7 +98,16 @@ const NewBO = ({ navigation }) => {
                       text='Adicionar Envolvido'
                     />
                   </FormGroup>
-                  <FormGroup>
+                }
+                }
+
+                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                    <CheckBox value={showObjetosForm} onValueChange={(val) => toggleObjetosFormVisibility(val)} />
+                    <Text size="md" style={{ marginLeft: 10, color: 'gray' }}>
+                        Houve objetos?
+                    </Text>
+                </View>
+                {showObjetosForm && <FormGroup>
                     {objetosForm.map((formFields, i) => <ObjetosForm fields={formFields} key={i} index={i} formikObj={formikObj} />)}
                     <Button
                       color='gray'
@@ -103,7 +120,7 @@ const NewBO = ({ navigation }) => {
                       style={{ marginBottom: 10 }}
                       text='Adicionar Objeto'
                     />
-                  </FormGroup>
+                  </FormGroup>}
 
                   <Button
                     loading={loading}
