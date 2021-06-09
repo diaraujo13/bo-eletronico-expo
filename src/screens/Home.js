@@ -6,6 +6,7 @@ import {
   Button,
   Text,
   Section,
+  SectionImage,
   SectionContent
 } from 'react-native-rapi-ui'
 import { Ionicons } from '@expo/vector-icons'
@@ -22,6 +23,22 @@ export default function ({ navigation }) {
           flexDirection: 'column'
         }}
       >
+        <Section style={{ width: '100%' }}>
+          <TouchableOpacity
+            onPress={() => {
+              alert('Disponível em breve')
+            }}
+          >
+            <SectionImage
+              height={260}
+              source={require('/Users/brendo/Documents/BoPm/bo-eletronico-expo/assets/img/paladino.jpg')}
+            />
+          </TouchableOpacity>
+          <SectionContent>
+            <Text>Sistema de Registro Policial</Text>
+          </SectionContent>
+        </Section>
+
         <Section style={{ width: '100%' }}>
           <TouchableOpacity
             onPress={() => {
@@ -62,7 +79,7 @@ export default function ({ navigation }) {
         <Section style={{ width: '100%' }}>
           <TouchableOpacity
             onPress={() => {
-              navigation.navigate('MainTabs')
+              alert('Disponível em breve')
             }}
             style={{
               backgroundColor: 'rgb(34, 34, 34)',
