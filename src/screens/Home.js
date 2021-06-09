@@ -31,7 +31,7 @@ export default function ({ navigation }) {
           >
             <SectionImage
               height={260}
-              source={require('/Users/brendo/Documents/BoPm/bo-eletronico-expo/assets/img/paladino.jpg')}
+              source={require('../../assets/img/paladino.jpg')}
             />
           </TouchableOpacity>
           <SectionContent>
