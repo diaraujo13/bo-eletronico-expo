@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import {View, Text, StyleSheet, Alert} from 'react-native'
+import { View, Text, StyleSheet, Alert } from 'react-native'
 import { TextInput, Button, CheckBox } from 'react-native-rapi-ui'
 import FormField from '../components/form/FormField'
 import FormWrapper from '../components/form/FormWrapper'
@@ -11,14 +11,14 @@ import { FieldArray, Formik } from 'formik'
 import FormGroup from '../components/form/FormGroup'
 import PersonForm from '../components/widgets/PersonForm'
 import ObjetosForm from '../components/widgets/ObjetosForm'
-import {API_URL} from "../helpers/constants";
+import { API_URL } from '../helpers/constants'
 
 const NewBO = ({ navigation }) => {
   const [form, setForm] = useState(formSchema)
-  const [pessoasForm, setPessoasForm] = useState(personSchema);
-  const [objetosForm, setObjetosForm] = useState(objetosSchema);
-  const [showPersonsForm, togglePersonsFormVisibility] = useState(false);
-  const [showObjetosForm, toggleObjetosFormVisibility] = useState(false);
+  const [pessoasForm, setPessoasForm] = useState(personSchema)
+  const [objetosForm, setObjetosForm] = useState(objetosSchema)
+  const [showPersonsForm, togglePersonsFormVisibility] = useState(false)
+  const [showObjetosForm, toggleObjetosFormVisibility] = useState(false)
 
   const [loading, setLoading] = useState(false)
 
@@ -44,25 +44,27 @@ const NewBO = ({ navigation }) => {
           <FormWrapper>
             <Formik
               initialValues={{}}
-              onSubmit={ async values => {
-
-                  fetch(API_URL, {
-                      method: 'POST',
-                      headers: {
-                          'Content-Type': 'application/json',
-                      },
-                      body: JSON.stringify(values)
+              onSubmit={async values => {
+                fetch(API_URL, {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify(values)
+                })
+                  .then(res => res.json())
+                  .then(res => {
+                    if (!res.error) {
+                      alert('Dados salvos com sucesso')
+                      navigation.goBack()
+                    }
                   })
-                      .then( res => res.json())
-                      .then( res => {
-                          if (!res.error){
-                              alert("Dados salvos com sucesso");
-                              navigation.goBack()
-                          }
-                      }).catch( err => {
-                          Alert.alert("Erro", "Ocorreu um erro ao processar sua requisiçao")
+                  .catch(err => {
+                    Alert.alert(
+                      'Erro',
+                      'Ocorreu um erro ao processar sua requisiçao'
+                    )
                   })
-
               }}
             >
               {formikObj => (
@@ -77,50 +79,72 @@ const NewBO = ({ navigation }) => {
                     ))}
                   </FormGroup>
 
-                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                    <CheckBox value={showPersonsForm} onValueChange={(val) => togglePersonsFormVisibility(val)} />
-                    <Text size="md" style={{ marginLeft: 10, color: 'gray' }}>
-                        Houve envolvidos?
-                    </Text>
-                </View>
-
-                { showPersonsForm && <FormGroup>
-                    {pessoasForm.map((formFields, i) => <PersonForm fields={formFields} key={i} index={i} formikObj={formikObj} />)}
-                    <Button
-                      color='gray'
-                      onPress={() => {
-                         setPessoasForm( [...pessoasForm, personSchema[0]])
-                      }}
-                      leftContent={
-                        <Ionicons name='person' color='white' size={34} />
-                      }
-                      style={{ marginBottom: 10 }}
-                      text='Adicionar Envolvido'
+                  <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                    <CheckBox
+                      value={showPersonsForm}
+                      onValueChange={val => togglePersonsFormVisibility(val)}
                     />
-                  </FormGroup>
-                }
-                }
-
-                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                    <CheckBox value={showObjetosForm} onValueChange={(val) => toggleObjetosFormVisibility(val)} />
-                    <Text size="md" style={{ marginLeft: 10, color: 'gray' }}>
-                        Houve objetos?
+                    <Text size='md' style={{ marginLeft: 10, color: 'gray' }}>
+                      Houve envolvidos?
                     </Text>
-                </View>
-                {showObjetosForm && <FormGroup>
-                    {objetosForm.map((formFields, i) => <ObjetosForm fields={formFields} key={i} index={i} formikObj={formikObj} />)}
-                    <Button
-                      color='gray'
-                      onPress={() => {
-                         setObjetosForm( [...objetosForm, objetosSchema[0]])
-                      }}
-                      leftContent={
-                        <Ionicons name='archive' color='white' size={34} />
-                      }
-                      style={{ marginBottom: 10 }}
-                      text='Adicionar Objeto'
+                  </View>
+
+                  {showPersonsForm && (
+                    <FormGroup>
+                      {pessoasForm.map((formFields, i) => (
+                        <PersonForm
+                          fields={formFields}
+                          key={i}
+                          index={i}
+                          formikObj={formikObj}
+                        />
+                      ))}
+                      <Button
+                        color='gray'
+                        onPress={() => {
+                          setPessoasForm([...pessoasForm, personSchema[0]])
+                        }}
+                        leftContent={
+                          <Ionicons name='person' color='white' size={34} />
+                        }
+                        style={{ marginBottom: 10 }}
+                        text='Adicionar Envolvido'
+                      />
+                    </FormGroup>
+                  )}
+
+                  <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                    <CheckBox
+                      value={showObjetosForm}
+                      onValueChange={val => toggleObjetosFormVisibility(val)}
                     />
-                  </FormGroup>}
+                    <Text size='md' style={{ marginLeft: 10, color: 'gray' }}>
+                      Houve objetos?
+                    </Text>
+                  </View>
+                  {showObjetosForm && (
+                    <FormGroup>
+                      {objetosForm.map((formFields, i) => (
+                        <ObjetosForm
+                          fields={formFields}
+                          key={i}
+                          index={i}
+                          formikObj={formikObj}
+                        />
+                      ))}
+                      <Button
+                        color='gray'
+                        onPress={() => {
+                          setObjetosForm([...objetosForm, objetosSchema[0]])
+                        }}
+                        leftContent={
+                          <Ionicons name='archive' color='white' size={34} />
+                        }
+                        style={{ marginBottom: 10 }}
+                        text='Adicionar Objeto'
+                      />
+                    </FormGroup>
+                  )}
 
                   <Button
                     loading={loading}
