@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { FlatList, StyleSheet, TouchableOpacity, View } from 'react-native'
+import {
+  ActivityIndicator,
+  FlatList,
+  StyleSheet,
+  TouchableOpacity,
+  View
+} from 'react-native'
 import { Layout, Text } from 'react-native-rapi-ui'
 import { TopNav } from 'react-native-rapi-ui'
 import { API_URL } from '../helpers/constants'
@@ -7,6 +13,8 @@ import { Ionicons } from '@expo/vector-icons'
 import { Section, SectionContent, SectionImage } from 'react-native-rapi-ui'
 
 export default function ({ navigation }) {
+  const [loading, setLoading] = useState(true)
+
   const [items, setItems] = useState([])
   useEffect(() => {
     fetch(API_URL + '/boletim')
@@ -15,7 +23,18 @@ export default function ({ navigation }) {
         setItems(res.result)
         console.log(res.result)
       })
+      .finally(() => setLoading(false))
   }, [])
+  if (loading)
+    return (
+      <>
+        <View
+          style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}
+        >
+          <ActivityIndicator></ActivityIndicator>
+        </View>
+      </>
+    )
   return (
     <Layout>
       <TopNav middleContent='Procurar' />
@@ -66,7 +85,9 @@ export default function ({ navigation }) {
                       top: '0%'
                     }}
                     onPress={() => {
-                      console.log('Edit ex')
+                      navigation.navigate('SearchItemDetailScreen', {
+                        id: item._id
+                      })
                     }}
                   >
                     <Ionicons
