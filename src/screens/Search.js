@@ -31,7 +31,7 @@ export default function ({ navigation }) {
         <View
           style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}
         >
-          <ActivityIndicator></ActivityIndicator>
+          <ActivityIndicator color="green"></ActivityIndicator>
         </View>
       </>
     )
