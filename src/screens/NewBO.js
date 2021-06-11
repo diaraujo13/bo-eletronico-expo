@@ -91,8 +91,8 @@ const NewBO = ({ navigation }) => {
                     <TextInput
                       style={{ padding: 10, marginBottom: 10 }}
                       placeholder='Dados Complementares'
-                      value={dados}
                       multiline
+                      name="dados"
                       onChangeText={val => setDados(val)}
                       leftContent={
                         <Ionicons name='list' size={20} color={'gray'} />
