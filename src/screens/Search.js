@@ -11,6 +11,7 @@ import { TopNav } from 'react-native-rapi-ui'
 import { API_URL } from '../helpers/constants'
 import { Ionicons } from '@expo/vector-icons'
 import { Section, SectionContent, SectionImage } from 'react-native-rapi-ui'
+import moment from 'moment';
 
 export default function ({ navigation }) {
   const [loading, setLoading] = useState(true)
@@ -81,10 +82,10 @@ export default function ({ navigation }) {
                   }}
                 >
                   <View>
-                    <Text size='h3'> {item.matricula}</Text>
-                    <Text size='h5'> {item.responsavel}</Text>
-                    <Text size='h6'> {item.createdAt}</Text>
-                    <Text size='h6'>COD: {item._id}</Text>
+                    <Text size='h3'>Matrícula: {item.matricula}</Text>
+                    <Text size='h5'>Responsável: {item.responsavel}</Text>
+                    <Text size='h6'>{new Date(item.createdAt).toLocaleDateString()} </Text>
+                    <Text size='h6'>Código: {item._id}</Text>
                   </View>
 
                   <TouchableOpacity

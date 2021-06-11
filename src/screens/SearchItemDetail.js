@@ -1,9 +1,11 @@
 import React from 'react'
 import { View } from 'react-native'
-import { Layout, TopNav, Text, theme } from 'react-native-rapi-ui'
+import { Button, Layout, TopNav, Text, theme } from 'react-native-rapi-ui'
 import { Ionicons } from '@expo/vector-icons'
 
 export default function ({ navigation }) {
+
+  const { _id } = navigation.params;
   return (
     <Layout>
       <TopNav
@@ -20,8 +22,9 @@ export default function ({ navigation }) {
           flex: 1
         }}
       >
-        {/* This text using ubuntu font */}
-        <Text fontWeight='bold'>This is the second screen</Text>
+        <Text fontWeight='bold'>Resumo da Ocorrência</Text>
+
+        <Buttton text="FAZER DOWNLOAD PDF"></Buttton>
       </View>
       </ScrollView>
 
