@@ -17,14 +17,26 @@ export default function ({ navigation }) {
 
   const [items, setItems] = useState([])
   useEffect(() => {
-    fetch(API_URL + '/boletim')
-      .then(res => res.json())
-      .then(res => {
-        setItems(res.result)
-        console.log(res.result)
-      })
-      .finally(() => setLoading(false))
-  }, [])
+
+    const unsubscribe = navigation.addListener('focus', () => {
+
+        setLoading(true);
+
+        console.log('entrou na tela')
+        fetch(API_URL + '/boletim')
+          .then(res => res.json())
+          .then(res => {
+            setItems(res.result)
+            console.log(res.result)
+          })
+          .finally(() => setLoading(false))
+        
+    });
+
+    return unsubscribe;
+
+  }, [navigation])
+
   if (loading)
     return (
       <>
