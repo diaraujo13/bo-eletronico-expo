@@ -1,11 +1,11 @@
 import React from 'react'
-import { View } from 'react-native'
+import { Linking, View } from 'react-native'
 import { Button, Layout, TopNav, Text, theme } from 'react-native-rapi-ui'
 import { Ionicons } from '@expo/vector-icons'
 
-export default function ({ navigation }) {
+export default function ({ route, navigation }) {
 
-  const { _id } = navigation.params;
+  const { _id } = route.params;
   return (
     <Layout>
       <TopNav
@@ -24,7 +24,9 @@ export default function ({ navigation }) {
       >
         <Text fontWeight='bold'>Resumo da Ocorrência</Text>
 
-        <Buttton text="FAZER DOWNLOAD PDF"></Buttton>
+        <Buttton text="FAZER DOWNLOAD PDF" onClick={ () => {
+          Linking.openURL
+        }}></Buttton>
       </View>
       </ScrollView>
 
