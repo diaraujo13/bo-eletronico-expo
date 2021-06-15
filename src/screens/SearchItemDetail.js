@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import { Linking, View, ScrollView } from 'react-native'
 import { Button, Layout, TopNav, Text, theme } from 'react-native-rapi-ui'
 import { Ionicons } from '@expo/vector-icons'
-import {API_URL} from "../helpers/constants";
+import {API_URL, MAIN_URL} from "../helpers/constants";
 import { formSchema } from '../helpers/formSchema';
 import Loader from '../components/utils/Loader';
 
@@ -90,8 +90,11 @@ export default function ({ route, navigation }) {
 
           <Button text="FAZER DOWNLOAD PDF" style={{marginVertical: 40 }} onPress={ async () => {
             try {
-                console.log(API_URL + '/generate/' + _id)
-                await Linking.openURL(API_URL + '/generate/' + _id);
+                console.log(API_URL + '/generateReport/' + _id)
+                let req = await fetch(API_URL + '/generateReport/' + _id);
+                let {url} = await req.json();
+
+                await Linking.openURL(`${MAIN_URL}/${url}`);
             } catch (e) {
                 console.log(e)
             }
