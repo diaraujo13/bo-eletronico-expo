@@ -130,6 +130,104 @@ export const formSchema = [
   /**Dados Pessoais da vitima */
 ];
 
+
+
+
+//Veículo
+
+
+export const veiculoSchema = [
+  {
+    inputType: "text",
+    name: "envolvido",
+    title: "Envolvido",
+    placeholder: "Envolvido ",
+    required: true,
+  },
+  {
+    inputType: "text",
+    name: "modelo",
+    title: "Marca / Modelo",
+    placeholder: "Marca / Modelo",
+    required: false,
+  },
+
+  {
+    inputType: "text",
+    name: "cor",
+    title: "Cor",
+    placeholder: "Cor",
+    required: false,
+  },
+
+  {
+    inputType: "text",
+    name: "ano",
+    title: "Ano",
+    placeholder: "Ano",
+    required: true,
+  },
+
+  {
+    inputType: "text",
+    name: "renavam",
+    title: "Renavam",
+    placeholder: "Renavam",
+    required: true,
+  },
+
+  {
+    inputType: "text",
+    name: "hrregistro",
+    title: "HORA DO REGISTRO",
+    placeholder: "HORA DO REGISTRO",
+    required: true,
+  },
+
+  {
+    inputType: "text",
+    name: "placa",
+    title: "Placa",
+    placeholder: "Placa",
+    required: true,
+  },
+
+  
+  {
+    inputType: "text",
+    name: "chassi",
+    title: "Chassi",
+    placeholder: "Chassi",
+    required: true,
+  },
+
+  {
+    inputType: "text",
+    name: "uf",
+    title: "UF",
+    placeholder: "UF",
+    required: true,
+  },
+];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 export const personSchema = [
   [
     {
