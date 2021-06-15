@@ -12,7 +12,6 @@ import FormGroup from '../components/form/FormGroup'
 import PersonForm from '../components/widgets/PersonForm'
 import ObjetosForm from '../components/widgets/ObjetosForm'
 import { API_URL } from '../helpers/constants'
-import Efetivo from '../components/form/inputs/Efetivo'
 
 const NewBO = ({ navigation }) => {
   const [form, setForm] = useState(formSchema)
@@ -54,7 +53,10 @@ const NewBO = ({ navigation }) => {
                     'Content-Type': 'application/json'
                   },
                   body: JSON.stringify(values)
+                 
                 })
+
+                console.log(values + 'brendo')
                   .then(res => res.json())
                   .then(res => {
                     console.log(res)
@@ -84,10 +86,7 @@ const NewBO = ({ navigation }) => {
                       />
                     ))}
 
-                    <View style={{ paddingTop: 20, marginBottom: 20 }}>
-                      <Efetivo />
-                    </View>
-
+                  
                     <TextInput
                       style={{ padding: 10, marginBottom: 10 }}
                       placeholder='Dados Complementares'
