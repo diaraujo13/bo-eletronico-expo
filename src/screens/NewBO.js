@@ -57,10 +57,7 @@ const NewBO = ({ navigation }) => {
                     "Content-Type": "application/json",
                   },
                   body: JSON.stringify(values),
-                });
-
-                console
-                  .log(values + "brendo")
+                })
                   .then((res) => res.json())
                   .then((res) => {
                     console.log(res);
