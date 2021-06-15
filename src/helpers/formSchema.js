@@ -1,5 +1,28 @@
 export const formSchema = [
   {
+    inputType: "text",
+    name: "mike",
+    title: "N do MIKE",
+    placeholder: "NÚMERO DA OCORRÊNCIA ",
+    required: true,
+  },
+  {
+    inputType: "text",
+    name: "matricula",
+    title: "Matrícula",
+    placeholder: "MATRÍCULA DO CONDUTOR",
+    required: true,
+  },
+
+  {
+    inputType: "text",
+    name: "responsavel",
+    title: "RESPONSÁVEL",
+    placeholder: "CONDUTOR DA OCORRÊNCIA",
+    required: true,
+  },
+
+  {
     inputType: "select",
     name: "tipoOcorr",
     title: "Tipo de Ocorrência",
@@ -74,41 +97,17 @@ export const formSchema = [
   },
   {
     inputType: "text",
-    name: "mike",
-    title: "N do MIKE",
-    placeholder: "NÚMERO DA OCORRÊNCIA ",
-    required: true,
-  },
-  {
-    inputType: "text",
-    name: "matricula",
-    title: "Matrícula",
-    placeholder: "MATRÍCULA DO CONDUTOR",
-    required: true,
-  },
-
-  {
-    inputType: "text",
-    name: "responsavel",
-    title: "RESPONSÁVEL",
-    placeholder: "CONDUTOR DA OCORRÊNCIA",
-    required: true,
-  },
-
-
-  {
-    inputType: "text",
     name: "endereco",
-    title: "Endereço da ocorrência",
-    placeholder: "",
+    title: "ENDEREÇO DA OCORRÊNCIA",
+    placeholder: "Ex: Rua 10 ,N 12,Centro",
     required: true,
   },
 
   {
     inputType: "date",
-    name: "dtregistro",
-    title: "DATA DO REGISTRO",
-    placeholder: "",
+    name: "dtfato",
+    title: "DATA DO FATO",
+    placeholder: "DATA DO FATO",
     required: true,
   },
 
@@ -116,7 +115,7 @@ export const formSchema = [
     inputType: "text",
     name: "hrregistro",
     title: "HORA DO REGISTRO",
-    placeholder: "",
+    placeholder: "HORA DO REGISTRO",
     required: true,
   },
 
@@ -124,7 +123,7 @@ export const formSchema = [
     inputType: "date",
     name: "dataFato",
     title: "Data do fato",
-    placeholder: "",
+    placeholder: "DATA DO FATO",
     required: true,
   },
 
@@ -150,7 +149,7 @@ export const personSchema = [
       inputType: "text",
       name: "pai",
       title: "PAI",
-      placeholder: "",
+      placeholder: "Nome do Pai",
       required: true,
     },
 
@@ -158,7 +157,7 @@ export const personSchema = [
       inputType: "text",
       name: "mae",
       title: "Mãe",
-      placeholder: "",
+      placeholder: "Nome da Mãe",
       required: true,
     },
 
@@ -166,28 +165,28 @@ export const personSchema = [
       inputType: "text",
       name: "nascimento",
       title: "Data de Nascimento",
-      placeholder: "",
+      placeholder: "Ex 10/05/1995",
       required: true,
     },
     {
       inputType: "text",
       name: "naturalidade",
       title: "Naturalidade",
-      placeholder: "",
+      placeholder: "Ex: Petrolina",
       required: true,
     },
     {
       inputType: "text",
       name: "rg",
       title: "RG",
-      placeholder: "",
+      placeholder: "EX: 8145376 SDS",
       required: true,
     },
     {
       inputType: "text",
       name: "cpf",
       title: "CPF",
-      placeholder: "",
+      placeholder: "Ex: 104.898.843-98",
       required: true,
     },
 
@@ -195,7 +194,7 @@ export const personSchema = [
       inputType: "text",
       name: "endereco",
       title: "ENDEREÇO",
-      placeholder: "",
+      placeholder: "Ex: rua Araripina N 10, Centro",
       required: true,
     },
   ],
@@ -257,6 +256,41 @@ export const paladinoSchema = [
 
 export const objetosSchema = [
   [
+    {
+      inputType: "text",
+      name: "nserie",
+      title: "Número de série",
+      placeholder: "Número de série",
+      required: true,
+    },
+
+
+    {
+      inputType: "text",
+      name: "motivo",
+      title: "Motivo do registro do objeto ?",
+      placeholder: "Qual o motivo do registro do objeto ?",
+      required: true,
+    },
+
+    {
+      inputType: "select",
+      name: "apreendido",
+      title: "Objeto Apreendido",
+      placeholder: "",
+      options: [
+        { value: "sim", label: "SIM" },
+        { value: "nao", label: "NÃO" },
+      ],
+    },
+
+    {
+      inputType: "text",
+      name: "envolvido",
+      title: "Envolvido",
+      placeholder: "Ex: Envolvido 1",
+      required: true,
+    },
     {
       inputType: "duo_select",
       name: "tipo_objeto",
@@ -6971,14 +7005,14 @@ export const objetosSchema = [
       inputType: "text",
       name: "qtd_objeto",
       title: "Quantidade Objeto",
-      placeholder: "",
+      placeholder: "Quantidade Objeto",
       required: true,
     },
     {
       inputType: "text",
       name: "vlr_objeto",
       title: "Valor objeto",
-      placeholder: "",
+      placeholder: "Valor do objeto",
       required: true,
     },
   ],
