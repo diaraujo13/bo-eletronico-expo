@@ -14,7 +14,7 @@ const FormWrapper = props => {
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <ScrollView>
           <KeyboardAvoidingView
-            behavior={Platform.OS == 'ios' ? 'padding' : 'height'}
+            behavior={'padding'}
           >
             {props.children}
           </KeyboardAvoidingView>
