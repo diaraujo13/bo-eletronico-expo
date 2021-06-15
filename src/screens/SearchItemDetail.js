@@ -1,11 +1,39 @@
-import React from 'react'
-import { Linking, View } from 'react-native'
+import React, {useEffect, useState} from 'react'
+import { Linking, View, ScrollView } from 'react-native'
 import { Button, Layout, TopNav, Text, theme } from 'react-native-rapi-ui'
 import { Ionicons } from '@expo/vector-icons'
+import {API_URL} from "../helpers/constants";
+import { formSchema } from '../helpers/formSchema';
+import Loader from '../components/utils/Loader';
 
 export default function ({ route, navigation }) {
 
+  const [loading, set_loading]  = useState(true);
+  const [boletim, set_boletim ] = useState({});
   const { _id } = route.params;
+
+  useEffect(() => {
+      set_loading(true);
+      console.log(API_URL + '/boletim/' + _id)
+      
+      try {
+        (async function(){
+          let req = await fetch(API_URL + '/boletim/' + _id);
+          let res = await req.json();
+          await set_boletim(res.result);
+        })();
+      } catch (e) {
+          console.log('Ocorreu um erro ao realizar a requisição:');
+          console.log(e);
+      } finally {
+          set_loading(false);
+      }
+
+  }, [_id]);
+
+  if (loading)
+    return <Loader />
+  
   return (
     <Layout>
       <TopNav
@@ -15,18 +43,60 @@ export default function ({ route, navigation }) {
         }
         leftAction={() => navigation.goBack()}
       />
-      <ScrollView style={{flex: 1}}>
+      <ScrollView style={{flex: 1, padding: 20}}>
 
       <View
         style={{
           flex: 1
         }}
       >
-        <Text fontWeight='bold'>Resumo da Ocorrência</Text>
+        <Text fontWeight='bold' size={'h1'} style={{ marginBottom: 20}}>Resumo da Ocorrência</Text>
 
-        <Buttton text="FAZER DOWNLOAD PDF" onClick={ () => {
-          Linking.openURL
-        }}></Buttton>
+          {/*********************************************************/}
+          {
+             boletim.mike && <>
+               <Text size={'h4'}>{boletim.mike}</Text>
+               <Text fontWeight='bold' size={'h6'} style={{marginBottom: 15}}>MIKE</Text>
+             </>
+          }
+
+          {
+              boletim.responsavel && <>
+                  <Text size={'h4'}>{boletim.responsavel}</Text>
+                  <Text fontWeight='bold' size={'h6'} style={{marginBottom: 15}}>Responsável</Text>
+              </>
+          }
+
+          {
+              boletim.matricula && <>
+                  <Text size={'h4'}>{boletim.matricula}</Text>
+                  <Text fontWeight='bold' size={'h6'} style={{marginBottom: 15}}>Matrícula</Text>
+              </>
+          }
+
+          {
+              boletim.createdAt && <>
+                  <Text size={'h4'}>{new Date(boletim.createdAt).toLocaleDateString()}</Text>
+                  <Text fontWeight='bold' size={'h6'} style={{marginBottom: 15}}>Data de criação</Text>
+              </>
+          }
+
+         {
+              boletim.tipoOcorr && <>
+                  <Text size={'h4'}>{formSchema[0].options.filter(el => el.value == boletim.tipoOcorr).label}</Text>
+                  <Text fontWeight='bold' size={'h6'} style={{marginBottom: 15}}>Tipo de ocorrência</Text>
+              </>
+          }          
+
+          <Button text="FAZER DOWNLOAD PDF" style={{marginVertical: 40 }} onPress={ async () => {
+            try {
+                console.log(API_URL + '/generate/' + _id)
+                await Linking.openURL(API_URL + '/generate/' + _id);
+            } catch (e) {
+                console.log(e)
+            }
+
+        }}></Button>
       </View>
       </ScrollView>
 

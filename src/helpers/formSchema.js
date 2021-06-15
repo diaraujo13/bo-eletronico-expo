@@ -1,28 +1,5 @@
 export const formSchema = [
   {
-    inputType: "text",
-    name: "mike",
-    title: "N do MIKE",
-    placeholder: "NÚMERO DA OCORRÊNCIA ",
-    required: true,
-  },
-  {
-    inputType: "text",
-    name: "matricula",
-    title: "Matrícula",
-    placeholder: "MATRÍCULA DO CONDUTOR",
-    required: true,
-  },
-
-  {
-    inputType: "text",
-    name: "responsavel",
-    title: "RESPONSÁVEL",
-    placeholder: "CONDUTOR DA OCORRÊNCIA",
-    required: true,
-  },
-
-  {
     inputType: "select",
     name: "tipoOcorr",
     title: "Tipo de Ocorrência",
@@ -95,6 +72,30 @@ export const formSchema = [
       { value: "491", label: "DESCUMPRIMENTO DE MEDIDA PROTETIVA DE URGÊNCIA" },
     ],
   },
+  {
+    inputType: "text",
+    name: "mike",
+    title: "N do MIKE",
+    placeholder: "NÚMERO DA OCORRÊNCIA ",
+    required: true,
+  },
+  {
+    inputType: "text",
+    name: "matricula",
+    title: "Matrícula",
+    placeholder: "MATRÍCULA DO CONDUTOR",
+    required: true,
+  },
+
+  {
+    inputType: "text",
+    name: "responsavel",
+    title: "RESPONSÁVEL",
+    placeholder: "CONDUTOR DA OCORRÊNCIA",
+    required: true,
+  },
+
+
   {
     inputType: "text",
     name: "endereco",

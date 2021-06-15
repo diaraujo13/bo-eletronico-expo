@@ -11,7 +11,7 @@ import { TopNav } from 'react-native-rapi-ui'
 import { API_URL } from '../helpers/constants'
 import { Ionicons } from '@expo/vector-icons'
 import { Section, SectionContent, SectionImage } from 'react-native-rapi-ui'
-import moment from 'moment';
+import Loader from '../components/utils/Loader'
 
 export default function ({ navigation }) {
   const [loading, setLoading] = useState(true)
@@ -22,15 +22,13 @@ export default function ({ navigation }) {
     const unsubscribe = navigation.addListener('focus', () => {
 
         setLoading(true);
-
-        console.log('entrou na tela')
         fetch(API_URL + '/boletim')
           .then(res => res.json())
           .then(res => {
             setItems(res.result)
-            console.log(res.result)
           })
-          .finally(() => setLoading(false))
+        .catch( err => console.log(err))
+      .finally(() => setLoading(false))
         
     });
 
@@ -39,15 +37,8 @@ export default function ({ navigation }) {
   }, [navigation])
 
   if (loading)
-    return (
-      <>
-        <View
-          style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}
-        >
-          <ActivityIndicator color="green"></ActivityIndicator>
-        </View>
-      </>
-    )
+    return <Loader />
+
   return (
     <Layout>
       <TopNav middleContent='Procurar' />
@@ -99,7 +90,7 @@ export default function ({ navigation }) {
                     }}
                     onPress={() => {
                       navigation.navigate('SearchItemDetailScreen', {
-                        id: item._id
+                        _id: item._id
                       })
                     }}
                   >

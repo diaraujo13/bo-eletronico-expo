@@ -13,6 +13,10 @@ import {
 } from '@expo-google-fonts/roboto-condensed';
 import { Provider } from 'react-redux';
 import store from './src/store';
+import { LogBox } from 'react-native';
+// console.disableYellowBox = true;
+// console.disableRedBox = true;
+LogBox.ignoreAllLogs();
 
 
 export default function App (props) {
