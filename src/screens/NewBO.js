@@ -187,7 +187,7 @@ const NewBO = ({ navigation }) => {
 
                 
 <View style={{ margin: 15 }}></View>
-
+{/* 
 {showVeiculosForm && (
   <FormGroup>
     {objetosForm.map((formFields, i) => (
@@ -210,7 +210,7 @@ const NewBO = ({ navigation }) => {
       text="Adicionar Veículo"
     />
   </FormGroup>
-)}
+)} */}
 
 
 
