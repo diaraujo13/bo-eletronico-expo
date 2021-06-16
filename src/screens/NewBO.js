@@ -11,7 +11,7 @@ import { FieldArray, Formik } from "formik";
 import FormGroup from "../components/form/FormGroup";
 import PersonForm from "../components/widgets/PersonForm";
 import ObjetosForm from "../components/widgets/ObjetosForm";
-import VeiculosForm from "../components/widgets/VeiculosForm";
+import VeiculoForm from "../components/widgets/VeiculosForm";
 
 import { API_URL } from "../helpers/constants";
 
@@ -19,6 +19,8 @@ const NewBO = ({ navigation }) => {
   const [form, setForm] = useState(formSchema);
   const [pessoasForm, setPessoasForm] = useState(personSchema);
   const [objetosForm, setObjetosForm] = useState(objetosSchema);
+  const [veiculosFormObj, setVeiculosFormObj] = useState(objetosSchema);
+
   const [showPersonsForm, togglePersonsFormVisibility] = useState(false);
   const [showObjetosForm, toggleObjetosFormVisibility] = useState(false);
   const [showVeiculosForm, toggleVeiculosFormVisibility] = useState(false);
@@ -50,7 +52,7 @@ const NewBO = ({ navigation }) => {
             <Formik
               initialValues={{}}
               onSubmit={async (values) => {
-                console.log(API_URL);
+                console.log(values);
                 fetch(API_URL + "/boletim", {
                   method: "POST",
                   headers: {
@@ -142,11 +144,11 @@ const NewBO = ({ navigation }) => {
 
                   <View style={{ flexDirection: "row", alignItems: "center" }}>
                     <CheckBox
-                      value={showObjetosForm}
-                      onValueChange={(val) => toggleObjetosFormVisibility(val)}
+                      value={showVeiculosForm}
+                      onValueChange={(val) => toggleVeiculosFormVisibility(val)}
                     />
                     <Text size="md" style={{ marginLeft: 10, color: "gray" }}>
-                      Houve objetos?
+                      Houve veículos envolvidos?
                     </Text>
                   </View>
 
